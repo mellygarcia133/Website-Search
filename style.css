@@ -1,4 +1,6 @@
-h1, body {
-font-family: 'Comfortaa', cursive;
-font-family: 'IBM Plex Sans', sans-serif;
+h1 {
+  padding: 30px;
+  border-style: dotted;
+  border-color: #00BFFF;
 }
+/*# sourceMappingURL=style.css.map */
