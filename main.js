@@ -2,7 +2,7 @@ var API_URL;
 var getInputValue = "";
 var giphyAPI_url = "https://api.giphy.com/v1/gifs/search?q=";
 var giphyAPI_key = "&api_key=0OBXJDQAUmPWs9DiNSHujXbpy0Vo9h5R&limit=";
-var getSearchNum = "";
+var getSearchNumber = "";
 var searchItem = "";
 
 const js_container = document.querySelector( '.js-container' );
@@ -35,11 +35,11 @@ function displaySearch() {
     if (getInputValue.includes("%20")) {
         var searchItemDecoded = getInputValue.split("%20").join(" ");
         js_display_search.innerHTML = `
-        <h2> Here are your <u>${getSearchNum} ${searchItemDecoded}</u> giphs. Enjoy!</h2>
+        <h2> Here are your <u>${getSearchNumber} ${searchItemDecoded}</u> giphs. Enjoy!</h2>
     `;
     } else {
         js_display_search.innerHTML = `
-        <h2> Here are your <u>${getSearchNum} ${getInputValue}</u> giphs. Enjoy!</h2>
+        <h2> Here are your <u>${getSearchNumber} ${getInputValue}</u> giphs. Enjoy!</h2>
     `;
     }
 }
@@ -70,17 +70,17 @@ function errorHandling() {
     `;
 }
 
-document.querySelector('.JS-form').addEventListener('submit', inputLength);
+document.querySelector('.search-form').addEventListener('submit', inputLength);
 
 
 
 function inputLength() {
     getInputValue = encodeURIComponent(document.querySelector('#search').value.trim());
-    getSearchNum = document.querySelector('#searchNum').value.trim();
+    getSearchNumber = document.querySelector('#searchNumber').value.trim();
     if (getInputValue.length===0) {
         event.preventDefault();
         alert("Please enter a search.")
-    } else if (getSearchNum.length===0) {
+    } else if (getSearchNumber.length===0) {
         event.preventDefault();
         alert("Please enter a number")
     } else {
@@ -90,12 +90,12 @@ function inputLength() {
 
 function returnGiphs() {
     event.preventDefault();
-    API_URL = giphyAPI_url + getInputValue + giphyAPI_key + getSearchNum;
+    API_URL = giphyAPI_url + getInputValue + giphyAPI_key + getSearchNumber;
     displaySearch();
     fetch( API_URL )
         .then( toJSON )
         .then( processResponse )
         .catch( errorHandling );
     document.querySelector("#search").value="";
-    document.querySelector("#searchNum").value="";
+    document.querySelector("#searchNumber").value="";
 }

@@ -13,40 +13,50 @@
 <body>
     <nav class="navbar navbar-light" style="background-color: #6666ff;">
         <a class="navbar-brand">GIPHY Search</a>
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="background-color: white; color: #6666ff;">Search</button>
-        </form>
     </nav>
-<h1>Find Something Cool</h1>
+
+<div class="container">
+    <h2 class="center" style="text-align: center; margin: 20px;">GIPHY Search Engine</h2>
+    
     <div class="form">
-        <form class="JS-form" action="#" method="GET">
+        <form class="search-form" action="#" method="GET">
             <div class="row">
                 <div class="col-sm-6">
                     <label for="search">GIPH Search</label>
                     <input type="text" id="search" class="form-control-lg" value="">
                 </div>
                 <div class="col-sm-6">
-                    <label for="searchNUM">How Many?</label>
-                    <input type="number" id="searchNum" class="form-control-lg" name="searchNum" min="1">
+                    <label for="searchNumber">How Many?</label>
+                    <input type="number" id="searchNumber" class="form-control-lg" name="searchNumber" min="1">
+                </div>       
+                <div class="button" style="margin: 5px;">
+                    <button id="submit" type="submit" class="js-button" style="background-color: white; color: #6666ff;">Show Me Something Awesome</button>
                 </div>
-            </div>
-            <div class="button">
-                <button id="submit" type="submit" class="js-button" style="background-color: white; color: #6666ff;">Show Me Something Awesome</button>
             </div>
         </form>
     </div>
+</div>
 
-    <div class="search-results">
+   
+
+    <!--<div class="search-results">
         <div id="gif-results" class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4"></div>
             <div class="col-md-4"></div>
-        </div>
+        </div> -->
 
     </div>
     <div class="js-display-title"></div>
-    <div class="js-container" ></div>
+    <div class="js-container" >
+        <div class="search-results">
+            <div id="gif-results" class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
     <div class="footer secondary_bck_color">
         <nav class="navbar fixed-bottom navbar-light bg-color">
             <div>
