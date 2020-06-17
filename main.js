@@ -5,16 +5,16 @@ var giphyAPI_key = "&api_key=0OBXJDQAUmPWs9DiNSHujXbpy0Vo9h5R&limit=";
 var getSearchNumber = "";
 var searchItem = "";
 
-const js_container = document.querySelector( '.js-container' );
-const js_display_search = document.querySelector('.js-display-title');
+const gifResults = document.querySelector( '.gifResults');
+const giphy_search_results = document.querySelector('.row');
 
 
-function toJSON ( response ) {
+function toJSON (response) {
     return response.json();
 };
 
 
-function processResponse ( content ) {
+function processResponse (content) {
     let markup = '';
     for (const gif of content.data) {
 
@@ -23,8 +23,8 @@ function processResponse ( content ) {
         let giphyAltText = gif.title;
 
         markup = markup + `
-            <div class="giphyBox">
-                <a href="${giphyURL}" target="_blank"> <img src = "${giphyImageURL}" alt="${giphyAltText}" /></a>
+            <div class="giphyBox col l3 m4 s6">
+                <a href="${giphyURL}" target="_blank"> <img src="${giphyImageURL}" alt="${giphyAltText}"/></a>
             </div>
         `;
     }
@@ -34,15 +34,15 @@ function processResponse ( content ) {
 function displaySearch() {
     if (getInputValue.includes("%20")) {
         var searchItemDecoded = getInputValue.split("%20").join(" ");
-        js_display_search.innerHTML = `
-        <h2> Here are your <u>${getSearchNumber} ${searchItemDecoded}</u> giphs. Enjoy!</h2>
+        giphy_search_results.innerHTML = `
+        <h2>${getSearchNumber} ${searchItemDecoded} Awesome Giphs!</h2>
     `;
     } else {
-        js_display_search.innerHTML = `
-        <h2> Here are your <u>${getSearchNumber} ${getInputValue}</u> giphs. Enjoy!</h2>
+        giphy_search_results.innerHTML = `
+        <h2>${getSearchNumber} ${getInputValue} Awesome Giphs!</h2>
     `;
     }
-}
+} 
 
 
 /*function displaySearch() {
@@ -61,7 +61,7 @@ function displaySearch() {
 
 
 function errorHandling() {
-    js_display_search.innerHTML= `
+    giphy_search_results.innerHTML= `
         Sorry! Your search could not be completed at this time.
     `;
 
@@ -99,3 +99,5 @@ function returnGiphs() {
     document.querySelector("#search").value="";
     document.querySelector("#searchNumber").value="";
 }
+
+$(document).function()
