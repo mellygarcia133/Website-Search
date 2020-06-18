@@ -19,7 +19,8 @@ function showResult(result) {
         giphImage.src = data.images.preview_webp.url;
         document.querySelector('.giphyResults').appendChild(giphImage);
     });
-    //document.getElementById('giphyGIF').src = result.data[1].images.preview_webp.url;
+    
+    search
 }
 
 document.querySelector('.searchbtn').addEventListener('click', () => {

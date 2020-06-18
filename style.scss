@@ -1,18 +1,33 @@
+$background-color: #BFC6FF;
+$navbar-color:  #6666ff;
+   
+body {
+    background-color: $background-color;
+} 
+
 h2 {
     text-align: center;
     font-size: 60px;
+    padding: 10px
 }
 .form {
     text-align: center;
     font-size: 20px;
+    position: center;
+    top: 50%;
+    left: 50%;
+    padding: 10px 0 20px 0
 }
 .button {
     text-align: center;
     font-size: 20px;
-    padding-left: 40%;
+    position: center;
+    top: 50%;
+    left: 50%;
 }
 
 .container {
     background-color: lightgrey;
     font-weight: bolder;
 }
+
