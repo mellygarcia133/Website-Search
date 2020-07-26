@@ -1,4 +1,4 @@
-//using getData() to fetch giphy API for string given by use,
+//using getData() to fetch giphy API
 function getData() {
     var giphy_api = $('#search').val();
     fetch(`https://api.giphy.com/v1/gifs/search?q=${giphy_api}&api_key=0OBXJDQAUmPWs9DiNSHujXbpy0Vo9h5R&limit=`)
@@ -25,16 +25,3 @@ function showResult(result) {
     
 }
 
-/*response.data[0].images.downsized_large.url
-/*document.querySelector('.searchbtn').addEventListener('click', () => {
-    let inputString = document.querySelector('input').value;
-    console.log(inputString);
-
-    //passing user input to getData,
-    if (inputString)
-        getData(inputString);
-    else
-       alert('Please enter some text!');
-
-})
-*/
