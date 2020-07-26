@@ -1,29 +1,32 @@
 //using getData() to fetch giphy API for string given by use,
-function getData(giphyAPI) {
-    fetch(`https://api.giphy.com/v1/gifs/search?q=${giphyAPI}&api_key=0OBXJDQAUmPWs9DiNSHujXbpy0Vo9h5R&limit=`)
+function getData() {
+    var giphy_api = $('#search').val();
+    fetch(`https://api.giphy.com/v1/gifs/search?q=${giphy_api}&api_key=0OBXJDQAUmPWs9DiNSHujXbpy0Vo9h5R&limit=`)
         .then(response => response.json())
         .then(result => {
-            console.log(result);
-            showResult(result);
+            console.log(result.data);
+            showResult(result.data);
         })
 }
 
 //Showing fetched result giph:
 function showResult(result) {
     //taking the array of data to access multiple giphs:
-    const dataArray = result.data;
+    const dataArray = result;
     console.log(dataArray);
 
     dataArray.forEach(data => {
         let giphImage = document.createElement('img');
-        giphImage.src = data.images.preview_webp.url;
+        giphImage.src = data.images.downsized_large.url;
         document.querySelector('.giphyResults').appendChild(giphImage);
+        $(giphImage).css("align-items", "space-between")
     });
     
-    search
+    
 }
 
-document.querySelector('.searchbtn').addEventListener('click', () => {
+/*response.data[0].images.downsized_large.url
+/*document.querySelector('.searchbtn').addEventListener('click', () => {
     let inputString = document.querySelector('input').value;
     console.log(inputString);
 
@@ -34,3 +37,4 @@ document.querySelector('.searchbtn').addEventListener('click', () => {
        alert('Please enter some text!');
 
 })
+*/
